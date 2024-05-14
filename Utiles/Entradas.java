@@ -43,7 +43,7 @@ public class Entradas {
 
         do{
             dni = scanner.nextLine();
-            if (dni.length() == 8) {
+            if (dni.length() >= 7) {
                 numero = Integer.parseInt(dni);
                 if (numero > 1000000 && numero < 99999999) {
                     valido=true;

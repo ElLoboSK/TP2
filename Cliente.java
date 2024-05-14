@@ -1,9 +1,9 @@
 package TP2;
 
-import TP2.Utiles.*;
-
 import java.util.List;
 import java.util.ArrayList;
+
+import TP2.Utiles.*;
 
 public class Cliente extends Persona {
     private int id;

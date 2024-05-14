@@ -11,7 +11,7 @@ public class CuentaBancaria {
     private double saldo;
     private String cbu;
     private String tipoCuenta;
-    private List<Movimientos> movimientos;
+    private List<Movimiento> movimientos;
 
     public CuentaBancaria(int id, int idCliente, LocalDate fechaApertura, double saldo, String cbu, String tipoCuenta) {
         this.id = id;
@@ -20,7 +20,7 @@ public class CuentaBancaria {
         this.saldo = saldo;
         this.cbu = cbu;
         this.tipoCuenta = tipoCuenta;
-        this.movimientos = new ArrayList<Movimientos>();
+        this.movimientos = new ArrayList<Movimiento>();
     }
 
     //setters y getters
@@ -72,11 +72,11 @@ public class CuentaBancaria {
         return tipoCuenta;
     }
 
-    public void setMovimientos(List<Movimientos> movimientos) {
+    public void setMovimientos(List<Movimiento> movimientos) {
         this.movimientos = movimientos;
     }
 
-    public List<Movimientos> getMovimientos() {
+    public List<Movimiento> getMovimientos() {
         return movimientos;
     }
 }

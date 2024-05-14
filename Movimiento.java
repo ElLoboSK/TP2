@@ -2,14 +2,14 @@ package TP2;
 
 import java.time.LocalDate;
 
-public class Movimientos {
+public class Movimiento {
     private int id;
     private int idCuentaBancaria;
     private LocalDate fechaCreacion;
     private double monto;
     private int operacion;
     
-    public Movimientos(int id, int idCuentaBancaria, LocalDate fechaCreacion, double monto, int operacion) {
+    public Movimiento(int id, int idCuentaBancaria, LocalDate fechaCreacion, double monto, int operacion) {
         this.id = id;
         this.idCuentaBancaria = idCuentaBancaria;
         this.fechaCreacion = fechaCreacion;
