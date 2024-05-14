@@ -63,7 +63,11 @@ public class App {
                     MetodosClientes.mostrarClientes();
                     break;
                 case 3:
-                    MetodosClientes.modificarCliente();
+                    String mensaje="\nElija el cliente a modificar usando el DNI:";
+                    int posicion=Auxiliares.elegirCliente(clientes, mensaje);
+                    if (posicion!=-1) {
+                        MetodosClientes.modificarCliente(posicion);
+                    }
                     break;
                 case 4:
                     MetodosClientes.eliminarCliente();
@@ -101,8 +105,17 @@ public class App {
                 case 3:
                     String mensaje="\nElija la cuenta bancaria a utilizar usando el ID:";
                     int posicion=Auxiliares.elegirCuentaBancaria(clientes, mensaje, posicionCliente);
+                    int posicionCuentasBancarias=-1;
                     if (posicion!=-1) {
-                        MetodosCuentasBancarias.menuAdministrarCuentaBancaria(posicion);
+                        for (int i=0;i<cuentasBancarias.size();i++) {
+                            if (clientes.get(posicionCliente).getCuentasBancarias().get(posicion).getId()==cuentasBancarias.get(i).getId()) {
+                                posicionCuentasBancarias=i;
+                                break;
+                            }
+                        }
+                        if (posicionCuentasBancarias!=-1) {
+                            MetodosCuentasBancarias.menuAdministrarCuentaBancaria(posicionCuentasBancarias);
+                        }
                     }
                     break;
                 case 4:

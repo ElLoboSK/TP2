@@ -87,31 +87,23 @@ public class MetodosCuentasBancarias {
         do{
             System.out.println("\nMenu Uso Cuenta Bancaria:");
             System.out.println("1-Mostrar Datos");
-            System.out.println("2-Mostrar Saldo");
-            System.out.println("3-Retirar");
-            System.out.println("4-Depositar");
-            System.out.println("5-Transferir");
-            System.out.println("6-Mostrar Movimientos");
+            System.out.println("2-Retirar");
+            System.out.println("3-Depositar");
+            System.out.println("4-Transferir");
             System.out.println("0-Volver al Menu Principal");
             menu = Entradas.validInt();
             switch (menu){
                 case 1:
-                    System.out.println("Mostrar Datos");
+                    cuentasBancarias.get(idCuentaBancaria).mostrarDatos();
                     break;
                 case 2:
-                    System.out.println("Mostrar Saldo");
-                    break;
-                case 3:
                     System.out.println("Retirar");
                     break;
-                case 4:
+                case 3:
                     System.out.println("Depositar");
                     break;
-                case 5:
+                case 4:
                     System.out.println("Transferir");
-                    break;
-                case 6:
-                    System.out.println("Mostrar Movimientos");
                     break;
                 case 0:
                     System.out.println("Volver al Menu Principal");

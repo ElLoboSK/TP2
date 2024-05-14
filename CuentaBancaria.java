@@ -23,6 +23,23 @@ public class CuentaBancaria {
         this.movimientos = new ArrayList<Movimiento>();
     }
 
+    public void mostrarDatos(){
+        System.out.println("\nId: "+this.id);
+        System.out.println("Id Cliente: "+this.idCliente);
+        System.out.println("Fecha de apertura: "+this.fechaApertura);
+        System.out.println("Saldo: "+this.saldo);
+        System.out.println("CBU: "+this.cbu);
+        System.out.println("Tipo de cuenta: "+this.tipoCuenta);
+        System.out.println("Movimientos: ");
+        if (this.movimientos.size()==0) {
+            System.out.println("No hay movimientos");
+        }else{
+            for (int i=0;i<this.movimientos.size();i++){
+
+            }
+        }
+    }
+
     //setters y getters
     public void setId(int id) {
         this.id = id;

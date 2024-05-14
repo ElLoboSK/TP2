@@ -63,14 +63,63 @@ public class MetodosClientes {
         }
     }
 
-    public static void modificarCliente() {
+    public static void modificarCliente(int posicionCliente) {
         clientes=Banco.getClientes();
+
+        int menu = 0;
         
-        String mensaje="\nElija el cliente a modificar usando el DNI:";
-        int posicion=Auxiliares.elegirCliente(clientes, mensaje);
-        if (posicion!=-1) {
-            clientes.get(posicion).modificarDatos();
-        }
+        do{
+            System.out.println("\nInformacion actual del cliente:");
+            System.out.println("Id: "+clientes.get(posicionCliente).getId());
+            System.out.println("Nombre: "+clientes.get(posicionCliente).getNombre());
+            System.out.println("Apellido: "+clientes.get(posicionCliente).getApellido());
+            System.out.println("DNI: "+clientes.get(posicionCliente).getDni());
+            System.out.println("Direccion: "+clientes.get(posicionCliente).getDireccion());
+            System.out.println("Telefono: "+clientes.get(posicionCliente).getTelefono());
+            System.out.println("Email: "+clientes.get(posicionCliente).getEmail());
+            System.out.println("\nMenu:");
+            System.out.println("1-Nombre");
+            System.out.println("2-Apellido");
+            System.out.println("3-Direccion");
+            System.out.println("4-Telefono");
+            System.out.println("5-Email");
+            System.out.println("0-Salir");
+            menu = Entradas.validInt();
+            switch (menu) {
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre:");
+                    String nombre = Entradas.entradaString();
+                    clientes.get(posicionCliente).setNombre(nombre);
+                    break;
+                case 2:
+                    System.out.println("Ingrese el nuevo apellido:");
+                    String apellido = Entradas.entradaString();
+                    clientes.get(posicionCliente).setApellido(apellido);
+                    break;
+                case 3:
+                    System.out.println("Ingrese la nueva direccion:");
+                    String direccion = Entradas.entradaString();
+                    clientes.get(posicionCliente).setDireccion(direccion);
+                    break;
+                case 4:
+                    System.out.println("Ingrese el nuevo telefono:");
+                    String telefono = Entradas.entradaString();
+                    clientes.get(posicionCliente).setTelefono(telefono);
+                    break;
+                case 5:
+                    System.out.println("Ingrese el nuevo email:");
+                    String email = Entradas.entradaString();
+                    clientes.get(posicionCliente).setEmail(email);
+                    break;
+                case 0:
+                    System.out.println("Salir");
+                    break;
+            
+                default:
+                    System.out.println("Error: opcion no valida");
+                    break;
+            }
+        }while (menu!=0);
     }
 
     public static void eliminarCliente() {
