@@ -79,7 +79,7 @@ public class MetodosCuentasBancarias {
         }
     }
 
-    public static void menuUsoCuentaBancaria(int idCuentaBancaria) {
+    public static void menuAdministrarCuentaBancaria(int idCuentaBancaria) {
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
         

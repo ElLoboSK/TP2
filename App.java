@@ -77,7 +77,7 @@ public class App {
         }while (menu!=0);
     }
 
-    static void menuCuentasBancarias(int posicionCliente) {   
+    static void menuCuentasBancarias(int posicionCliente) {
         int menu;
 
         do{
@@ -87,7 +87,7 @@ public class App {
             System.out.println("\nMenu Cuentas Bancarias:");
             System.out.println("1-Crear Cuenta Bancaria");
             System.out.println("2-Mostrar Cuentas Bancarias");
-            System.out.println("3-Usar Cuenta Bancaria");
+            System.out.println("3-Administrar Cuenta Bancaria");
             System.out.println("4-Eliminar Cuenta Bancaria");
             System.out.println("0-Volver al Menu Principal");
             menu = Entradas.validInt();
@@ -102,7 +102,7 @@ public class App {
                     String mensaje="\nElija la cuenta bancaria a utilizar usando el ID:";
                     int posicion=Auxiliares.elegirCuentaBancaria(clientes, mensaje, posicionCliente);
                     if (posicion!=-1) {
-                        MetodosCuentasBancarias.menuUsoCuentaBancaria(posicion);
+                        MetodosCuentasBancarias.menuAdministrarCuentaBancaria(posicion);
                     }
                     break;
                 case 4:
