@@ -11,10 +11,12 @@ public class App {
 
     public static void main(String[] args) {
         int menu;
+
+        Consola.limpiarPantalla();
         do {
             clientes=Banco.getClientes();
             cuentasBancarias=Banco.getCuentasBancarias();
-
+            
             System.out.println("Menu Principal:");
             System.out.println("1-Clientes");
             System.out.println("2-Cuentas Bancarias");
@@ -26,7 +28,7 @@ public class App {
                     break;
                 case 2:
                     String mensaje="\nElija el cliente del que desea administrar las cuentas bancarias usando el DNI:";
-                    int posicionCliente = Auxiliares.elegirCliente(clientes,mensaje);
+                    int posicionCliente = AdministracionClientes.elegirCliente(clientes,mensaje);
                     if (posicionCliente!=-1) {
                         menuCuentasBancarias(posicionCliente);
                     }
@@ -48,7 +50,7 @@ public class App {
             clientes=Banco.getClientes();
             cuentasBancarias=Banco.getCuentasBancarias();
 
-            System.out.println("\nMenu Clientes:");
+            System.out.println("Menu Clientes:");
             System.out.println("1-Crear Cliente");
             System.out.println("2-Mostrar Clientes");
             System.out.println("3-Modificar Cliente");
@@ -57,20 +59,20 @@ public class App {
             menu = Entradas.validInt();
             switch (menu){
                 case 1:
-                    MetodosClientes.crearCliente();
+                    AdministracionClientes.crearCliente();
                     break;
                 case 2:
-                    MetodosClientes.mostrarClientes();
+                    AdministracionClientes.mostrarClientes();
                     break;
                 case 3:
                     String mensaje="\nElija el cliente a modificar usando el DNI:";
-                    int posicion=Auxiliares.elegirCliente(clientes, mensaje);
+                    int posicion=AdministracionClientes.elegirCliente(clientes, mensaje);
                     if (posicion!=-1) {
-                        MetodosClientes.modificarCliente(posicion);
+                        AdministracionClientes.modificarCliente(posicion);
                     }
                     break;
                 case 4:
-                    MetodosClientes.eliminarCliente();
+                    AdministracionClientes.eliminarCliente();
                     break;
                 case 0:
                     System.out.println("Volver al Menu Principal");
@@ -88,7 +90,7 @@ public class App {
             clientes=Banco.getClientes();
             cuentasBancarias=Banco.getCuentasBancarias();
 
-            System.out.println("\nMenu Cuentas Bancarias:");
+            System.out.println("Menu Cuentas Bancarias:");
             System.out.println("1-Crear Cuenta Bancaria");
             System.out.println("2-Mostrar Cuentas Bancarias");
             System.out.println("3-Administrar Cuenta Bancaria");
@@ -97,29 +99,29 @@ public class App {
             menu = Entradas.validInt();
             switch (menu){
                 case 1:
-                    MetodosCuentasBancarias.crearCuentaBancaria(posicionCliente);
+                    AdministracionCuentasBancarias.crearCuentaBancaria(posicionCliente);
                     break;
                 case 2:
-                    MetodosCuentasBancarias.mostrarCuentasBancarias(posicionCliente);
+                    AdministracionCuentasBancarias.mostrarCuentasBancarias(posicionCliente);
                     break;
                 case 3:
                     String mensaje="\nElija la cuenta bancaria a utilizar usando el ID:";
-                    int posicion=Auxiliares.elegirCuentaBancaria(clientes, mensaje, posicionCliente);
-                    int posicionCuentasBancarias=-1;
-                    if (posicion!=-1) {
+                    int posicionCuentaCliente=AdministracionCuentasBancarias.elegirCuentaBancaria(clientes, mensaje, posicionCliente);
+                    int posicionCuentaBancaria=-1;
+                    if (posicionCuentaCliente!=-1) {
                         for (int i=0;i<cuentasBancarias.size();i++) {
-                            if (clientes.get(posicionCliente).getCuentasBancarias().get(posicion).getId()==cuentasBancarias.get(i).getId()) {
-                                posicionCuentasBancarias=i;
+                            if (clientes.get(posicionCliente).getCuentasBancarias().get(posicionCuentaCliente).getId()==cuentasBancarias.get(i).getId()) {
+                                posicionCuentaBancaria=i;
                                 break;
                             }
                         }
-                        if (posicionCuentasBancarias!=-1) {
-                            MetodosCuentasBancarias.menuAdministrarCuentaBancaria(posicionCuentasBancarias);
+                        if (posicionCuentaBancaria!=-1) {
+                            AdministracionCuentasBancarias.menuAdministrarCuentaBancaria(posicionCuentaBancaria);
                         }
                     }
                     break;
                 case 4:
-                    MetodosCuentasBancarias.eliminarCuentaBancaria(posicionCliente);
+                    AdministracionCuentasBancarias.eliminarCuentaBancaria(posicionCliente);
                     break;
                 case 0:
                     System.out.println("Volver al Menu Principal");

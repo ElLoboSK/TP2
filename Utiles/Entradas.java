@@ -7,21 +7,44 @@ public class Entradas {
 
     //validaciones de tipos de datos
     public static int validInt() {
-        int entero = 0;
+        int numero = 0;
         String entrada;
         boolean valido = false;
 
         do{
             try {
                 entrada = scanner.nextLine();
-                entero = Integer.parseInt(entrada);
+                numero = Integer.valueOf(entrada);
                 valido = true;
             } catch (Exception e) {
                 System.out.println("Error: tipo de dato invalido");
                 valido = false;
             }
         } while (!valido);
-        return entero;
+        
+        return numero;
+    }
+
+    public static double validDouble() {
+        double numero = 0;
+        String entrada;
+        boolean valido = false;
+
+        do{
+            try {
+                entrada = scanner.nextLine();
+                numero = Double.valueOf(entrada);
+                valido = true;
+            } catch (Exception e) {
+                System.out.println("Error: tipo de dato invalido");
+                valido = false;
+            }
+        } while (!valido);
+        
+        double factor = Math.pow(10, 2);
+        numero = Math.floor(numero*factor)/factor;
+
+        return numero;
     }
 
     public static String entradaString() {
@@ -43,9 +66,9 @@ public class Entradas {
 
         do{
             dni = scanner.nextLine();
-            if (dni.length() >= 7) {
-                numero = Integer.parseInt(dni);
-                if (numero > 1000000 && numero < 99999999) {
+            if (dni.length() == 8) {
+                numero = Integer.valueOf(dni);
+                if (numero > 10000000 && numero < 99999999) {
                     valido=true;
                 }
             }
@@ -56,5 +79,24 @@ public class Entradas {
         return dni;
     }   
 
+    public static String validCBU() {
+        String cbu;
+        int numero;
+        boolean valido = false;
+
+        do{
+            cbu = scanner.nextLine();
+            if (cbu.length() == 6) {
+                numero = Integer.valueOf(cbu);
+                if (numero > 100000 && numero < 999999) {
+                    valido=true;
+                }
+            }
+            if (!valido) {
+                System.out.println("Error: CBU invalido");
+            }
+        }while (!valido);
+        return cbu;
+    }
 }
 

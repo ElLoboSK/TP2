@@ -7,8 +7,9 @@ import java.util.List;
 import TP2.Banco;
 import TP2.Cliente;
 import TP2.CuentaBancaria;
+import TP2.Operaciones;
 
-public class MetodosCuentasBancarias {
+public class AdministracionCuentasBancarias {
     static List<Cliente> clientes=new ArrayList<Cliente>();
     static List<CuentaBancaria> cuentasBancarias=new ArrayList<CuentaBancaria>();
 
@@ -16,7 +17,7 @@ public class MetodosCuentasBancarias {
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
 
-        int idCliente = posicionCliente;
+        int idCliente = clientes.get(posicionCliente).getId();
         LocalDate fechaApertura = LocalDate.now();
         double saldo = 0;
 
@@ -79,7 +80,7 @@ public class MetodosCuentasBancarias {
         }
     }
 
-    public static void menuAdministrarCuentaBancaria(int idCuentaBancaria) {
+    public static void menuAdministrarCuentaBancaria(int posicionCuentaBancaria) {
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
         
@@ -87,23 +88,23 @@ public class MetodosCuentasBancarias {
         do{
             System.out.println("\nMenu Uso Cuenta Bancaria:");
             System.out.println("1-Mostrar Datos");
-            System.out.println("2-Retirar");
-            System.out.println("3-Depositar");
+            System.out.println("2-Depositar");
+            System.out.println("3-Retirar");
             System.out.println("4-Transferir");
             System.out.println("0-Volver al Menu Principal");
             menu = Entradas.validInt();
             switch (menu){
                 case 1:
-                    cuentasBancarias.get(idCuentaBancaria).mostrarDatos();
+                    cuentasBancarias.get(posicionCuentaBancaria).mostrarDatos();
                     break;
                 case 2:
-                    System.out.println("Retirar");
+                    Operaciones.depositar(posicionCuentaBancaria);
                     break;
                 case 3:
-                    System.out.println("Depositar");
+                    Operaciones.retirar(posicionCuentaBancaria);
                     break;
                 case 4:
-                    System.out.println("Transferir");
+                    Operaciones.transferir(posicionCuentaBancaria);
                     break;
                 case 0:
                     System.out.println("Volver al Menu Principal");
@@ -120,7 +121,7 @@ public class MetodosCuentasBancarias {
         cuentasBancarias=Banco.getCuentasBancarias();
         
         String mensaje="\nElija la cuenta bancaria a eliminar usando el ID:";
-        int posicion=Auxiliares.elegirCuentaBancaria(clientes, mensaje, posicionCliente);
+        int posicion=elegirCuentaBancaria(clientes, mensaje, posicionCliente);
         
         int respuesta;
         if (posicion!=-1) {
@@ -152,5 +153,31 @@ public class MetodosCuentasBancarias {
                 } while (respuesta != 1 && respuesta!= 2);
             }
         }
+    }
+
+    //Metodos auxiliares
+    public static int elegirCuentaBancaria(List<Cliente> clientes, String mensaje, int posicionCliente) {
+        int posicion=-1;
+        
+        System.out.println("\nCuentas Bancarias del cliente:");
+        if (clientes.get(posicionCliente).getCuentasBancarias().size()==0){
+            System.out.println("No hay cuentas bancarias");
+        }else{
+            for (int i=0;i<clientes.get(posicionCliente).getCuentasBancarias().size();i++){
+                System.out.println("ID: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getId()+", CBU: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getCbu()+", Fecha de apretura: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getFechaApertura()+", Tipo: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getTipoCuenta());
+            }
+            System.out.println(mensaje);
+            int id = Entradas.validInt();
+            
+            for (int i=0;i<clientes.get(posicionCliente).getCuentasBancarias().size();i++){
+                if (clientes.get(posicionCliente).getCuentasBancarias().get(i).getId()==id){
+                    posicion=i;
+                }
+            }
+            if (posicion==-1) {
+                System.out.println("La cuenta bancaria no existe");    
+            }
+        }
+        return posicion;
     }
 }

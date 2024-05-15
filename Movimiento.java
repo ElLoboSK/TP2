@@ -5,14 +5,14 @@ import java.time.LocalDate;
 public class Movimiento {
     private int id;
     private int idCuentaBancaria;
-    private LocalDate fechaCreacion;
+    private LocalDate fechaOperacion;
     private double monto;
-    private int operacion;
+    private String operacion;
     
-    public Movimiento(int id, int idCuentaBancaria, LocalDate fechaCreacion, double monto, int operacion) {
+    public Movimiento(int id, int idCuentaBancaria, LocalDate fechaOperacion, double monto, String operacion) {
         this.id = id;
         this.idCuentaBancaria = idCuentaBancaria;
-        this.fechaCreacion = fechaCreacion;
+        this.fechaOperacion = fechaOperacion;
         this.monto = monto;
         this.operacion = operacion;
     }
@@ -34,12 +34,12 @@ public class Movimiento {
         return idCuentaBancaria;
     }
 
-    public void setFecha(LocalDate fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setFecha(LocalDate fechaOperacion) {
+        this.fechaOperacion = fechaOperacion;
     }
 
     public LocalDate getFecha() {
-        return fechaCreacion;
+        return fechaOperacion;
     }
 
     public void setMonto(double monto) {
@@ -50,11 +50,11 @@ public class Movimiento {
         return monto;
     }
 
-    public void setOperacion(int operacion) {
+    public void setOperacion(String operacion) {
         this.operacion = operacion;
     }
 
-    public int getOperacion() {
+    public String getOperacion() {
         return operacion;
     }
 }

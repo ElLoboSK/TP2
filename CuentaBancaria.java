@@ -35,7 +35,7 @@ public class CuentaBancaria {
             System.out.println("No hay movimientos");
         }else{
             for (int i=0;i<this.movimientos.size();i++){
-
+                System.out.println("ID: "+this.movimientos.get(i).getId()+", Fecha: "+this.movimientos.get(i).getFecha()+", Monto: "+this.movimientos.get(i).getMonto()+", Operacion: "+this.movimientos.get(i).getOperacion());
             }
         }
     }

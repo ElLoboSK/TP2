@@ -7,7 +7,7 @@ import TP2.Banco;
 import TP2.Cliente;
 import TP2.CuentaBancaria;
 
-public class MetodosClientes {
+public class AdministracionClientes {
     static List<Cliente> clientes=new ArrayList<Cliente>();
     static List<CuentaBancaria> cuentasBancarias=new ArrayList<CuentaBancaria>();
 
@@ -127,7 +127,7 @@ public class MetodosClientes {
         cuentasBancarias=Banco.getCuentasBancarias();
 
         String mensaje="\nElija el cliente a eliminar usando el DNI:";
-        int posicion=Auxiliares.elegirCliente(clientes, mensaje);
+        int posicion=elegirCliente(clientes, mensaje);
         
         boolean valido=true;
         if (posicion!=-1) {
@@ -163,5 +163,31 @@ public class MetodosClientes {
                 }
             } while (respuesta!=1 && respuesta!=2);
         }
+    }
+
+    //Metodos auxiliares
+    public static int elegirCliente(List<Cliente> clientes, String mensaje) {
+        int posicion=-1;
+
+        System.out.println("\nClientes:");
+        if (clientes.size()==0){
+            System.out.println("No hay clientes");
+        }else{
+            for (int i=0;i<clientes.size();i++){
+                System.out.println("ID: "+clientes.get(i).getId()+", Nombre: "+clientes.get(i).getNombre()+", Apellido: "+clientes.get(i).getApellido()+", DNI:"+clientes.get(i).getDni());
+            }
+            System.out.println(mensaje);
+            String dni = Entradas.validDni();
+
+            for (int i=0;i<clientes.size();i++){
+                if (clientes.get(i).getDni().equals(dni)){
+                    posicion = i;
+                }
+            }
+            if (posicion==-1){
+                System.out.println("El cliente no existe");
+            }
+        }
+        return posicion;
     }
 }
