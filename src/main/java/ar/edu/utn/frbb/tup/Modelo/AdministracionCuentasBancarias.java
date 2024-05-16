@@ -1,13 +1,14 @@
-package ar.edu.utn.frbb.tup.Utiles;
+package ar.edu.utn.frbb.tup.Modelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.utn.frbb.tup.Banco;
-import ar.edu.utn.frbb.tup.Cliente;
-import ar.edu.utn.frbb.tup.CuentaBancaria;
-import ar.edu.utn.frbb.tup.Operaciones;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.Banco;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
+import ar.edu.utn.frbb.tup.Utiles.Consola;
+import ar.edu.utn.frbb.tup.Utiles.Entradas;
 
 public class AdministracionCuentasBancarias {
     static List<Cliente> clientes=new ArrayList<Cliente>();

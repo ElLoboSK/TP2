@@ -3,6 +3,11 @@ package ar.edu.utn.frbb.tup;
 import java.util.List;
 import java.util.ArrayList;
 
+import ar.edu.utn.frbb.tup.Modelo.AdministracionClientes;
+import ar.edu.utn.frbb.tup.Modelo.AdministracionCuentasBancarias;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.Banco;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
 import ar.edu.utn.frbb.tup.Utiles.*;
 
 public class App {

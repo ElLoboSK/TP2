@@ -1,9 +1,13 @@
-package ar.edu.utn.frbb.tup;
+package ar.edu.utn.frbb.tup.Modelo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
+import ar.edu.utn.frbb.tup.Modelo.Entidades.Banco;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
+import ar.edu.utn.frbb.tup.Modelo.Entidades.Movimiento;
 import ar.edu.utn.frbb.tup.Utiles.*;
 
 public class Operaciones {

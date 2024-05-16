@@ -1,4 +1,4 @@
-package ar.edu.utn.frbb.tup;
+package ar.edu.utn.frbb.tup.Modelo.Entidades;
 
 import java.util.List;
 import java.util.ArrayList;
