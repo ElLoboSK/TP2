@@ -1,4 +1,4 @@
-package TP2;
+package ar.edu.utn.frbb.tup;
 
 import java.util.List;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package TP2.Utiles;
+package ar.edu.utn.frbb.tup.Utiles;
 
 import java.util.Scanner;
 

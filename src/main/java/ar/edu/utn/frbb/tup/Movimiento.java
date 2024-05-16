@@ -1,4 +1,4 @@
-package TP2;
+package ar.edu.utn.frbb.tup;
 
 import java.time.LocalDate;
 

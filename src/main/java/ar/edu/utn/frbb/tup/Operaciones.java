@@ -1,10 +1,10 @@
-package TP2;
+package ar.edu.utn.frbb.tup;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
-import TP2.Utiles.*;
+import ar.edu.utn.frbb.tup.Utiles.*;
 
 public class Operaciones {
     static List<Cliente> clientes=new ArrayList<Cliente>();

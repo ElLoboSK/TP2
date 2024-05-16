@@ -1,9 +1,9 @@
-package TP2;
+package ar.edu.utn.frbb.tup;
 
 import java.util.List;
 import java.util.ArrayList;
 
-import TP2.Utiles.*;
+import ar.edu.utn.frbb.tup.Utiles.*;
 
 public class App {
     static List<Cliente> clientes=new ArrayList<Cliente>();

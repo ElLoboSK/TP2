@@ -1,13 +1,13 @@
-package TP2.Utiles;
+package ar.edu.utn.frbb.tup.Utiles;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import TP2.Banco;
-import TP2.Cliente;
-import TP2.CuentaBancaria;
-import TP2.Operaciones;
+import ar.edu.utn.frbb.tup.Banco;
+import ar.edu.utn.frbb.tup.Cliente;
+import ar.edu.utn.frbb.tup.CuentaBancaria;
+import ar.edu.utn.frbb.tup.Operaciones;
 
 public class AdministracionCuentasBancarias {
     static List<Cliente> clientes=new ArrayList<Cliente>();

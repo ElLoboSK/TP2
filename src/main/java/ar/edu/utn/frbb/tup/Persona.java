@@ -1,4 +1,4 @@
-package TP2;
+package ar.edu.utn.frbb.tup;
 
 public class Persona {
     private String nombre;
