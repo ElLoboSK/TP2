@@ -35,6 +35,7 @@ public class Operaciones {
         double saldoFinal = cuentasBancarias.get(posicionCuentaBancaria).getSaldo() + monto;
         cuentasBancarias.get(posicionCuentaBancaria).setSaldo(saldoFinal);
 
+        Consola.limpiarPantalla();
         System.out.println("Deposito realizado");
     }
 
@@ -43,6 +44,7 @@ public class Operaciones {
         cuentasBancarias=Banco.getCuentasBancarias();
 
         if (cuentasBancarias.get(posicionCuentaBancaria).getSaldo()==0) {
+            Consola.limpiarPantalla();
             System.out.println("No hay saldo");
         }else{
             int idMovimiento=0;
@@ -63,6 +65,7 @@ public class Operaciones {
                 if (monto<=cuentasBancarias.get(posicionCuentaBancaria).getSaldo()) {
                     valido=true;
                 }else {
+                    Consola.limpiarPantalla();
                     System.out.println("Error: saldo insuficiente");
                 }
     
@@ -76,6 +79,7 @@ public class Operaciones {
             double saldoFinal = cuentasBancarias.get(posicionCuentaBancaria).getSaldo() - monto;
             cuentasBancarias.get(posicionCuentaBancaria).setSaldo(saldoFinal);
     
+            Consola.limpiarPantalla();
             System.out.println("Retiro realizado");
         }
     }
@@ -85,9 +89,10 @@ public class Operaciones {
         cuentasBancarias=Banco.getCuentasBancarias();
 
         if (cuentasBancarias.get(posicionCuentaBancaria).getSaldo()==0) {
+            Consola.limpiarPantalla();
             System.out.println("No hay saldo");
         }else{
-            System.out.println("\nCuentas bancarias para transferir:");
+            System.out.println("Cuentas bancarias para transferir:");
             if (cuentasBancarias.size()==1) {
                 System.out.println("No hay cuentas bancarias para transferir");
             }else{
@@ -107,6 +112,7 @@ public class Operaciones {
                 }
     
                 if (posicionCuentaBancariaTransferir==-1) {
+                    Consola.limpiarPantalla();
                     System.out.println("La cuenta bancaria no existe");
                 }else{
                     int idMovimiento=0;
@@ -127,6 +133,7 @@ public class Operaciones {
                         if (monto<=cuentasBancarias.get(posicionCuentaBancaria).getSaldo()) {
                             validoMonto=true;
                         }else {
+                            Consola.limpiarPantalla();
                             System.out.println("Error: saldo insuficiente");
                         }
                 
@@ -149,6 +156,7 @@ public class Operaciones {
                     saldoFinal = cuentasBancarias.get(posicionCuentaBancariaTransferir).getSaldo() + monto;
                     cuentasBancarias.get(posicionCuentaBancariaTransferir).setSaldo(saldoFinal);
                 
+                    Consola.limpiarPantalla();
                     System.out.println("Transferencia realizada");
                 }
             }

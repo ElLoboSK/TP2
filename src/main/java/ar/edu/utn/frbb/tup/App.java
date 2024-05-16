@@ -17,16 +17,20 @@ public class App {
             clientes=Banco.getClientes();
             cuentasBancarias=Banco.getCuentasBancarias();
             
-            System.out.println("Menu Principal:");
+            System.out.println("------------------------------");
+            System.out.println("Menu principal:");
             System.out.println("1-Clientes");
             System.out.println("2-Cuentas Bancarias");
             System.out.println("0-Salir");
+            System.out.println("------------------------------");
             menu = Entradas.validInt();
             switch (menu) {
                 case 1:
+                    Consola.limpiarPantalla();
                     menuClientes();
                     break;
                 case 2:
+                    Consola.limpiarPantalla();
                     String mensaje="\nElija el cliente del que desea administrar las cuentas bancarias usando el DNI:";
                     int posicionCliente = AdministracionClientes.elegirCliente(clientes,mensaje);
                     if (posicionCliente!=-1) {
@@ -34,12 +38,13 @@ public class App {
                     }
                     break;
                 case 0:
+                    Consola.limpiarPantalla();
                     System.out.println("Salir");
                     break;
                 default:
+                    Consola.limpiarPantalla();
                     System.out.println("Error: opcion no valida");
             }
-            System.out.println();
         } while (menu!= 0);
     }
 
@@ -50,21 +55,26 @@ public class App {
             clientes=Banco.getClientes();
             cuentasBancarias=Banco.getCuentasBancarias();
 
-            System.out.println("Menu Clientes:");
+            System.out.println("------------------------------");
+            System.out.println("Menu de clientes:");
             System.out.println("1-Crear Cliente");
             System.out.println("2-Mostrar Clientes");
             System.out.println("3-Modificar Cliente");
             System.out.println("4-Eliminar Cliente");
-            System.out.println("0-Volver al Menu Principal");
+            System.out.println("0-Volver");
+            System.out.println("------------------------------");
             menu = Entradas.validInt();
             switch (menu){
                 case 1:
+                    Consola.limpiarPantalla();
                     AdministracionClientes.crearCliente();
                     break;
                 case 2:
+                    Consola.limpiarPantalla(); 
                     AdministracionClientes.mostrarClientes();
                     break;
                 case 3:
+                    Consola.limpiarPantalla();
                     String mensaje="\nElija el cliente a modificar usando el DNI:";
                     int posicion=AdministracionClientes.elegirCliente(clientes, mensaje);
                     if (posicion!=-1) {
@@ -72,12 +82,15 @@ public class App {
                     }
                     break;
                 case 4:
+                    Consola.limpiarPantalla();
                     AdministracionClientes.eliminarCliente();
                     break;
                 case 0:
-                    System.out.println("Volver al Menu Principal");
+                    Consola.limpiarPantalla();
+                    System.out.println("Volver");
                     break;
                 default:
+                    Consola.limpiarPantalla();
                     System.out.println("Error: opcion no valida");
             }
         }while (menu!=0);
@@ -90,21 +103,26 @@ public class App {
             clientes=Banco.getClientes();
             cuentasBancarias=Banco.getCuentasBancarias();
 
-            System.out.println("Menu Cuentas Bancarias:");
+            System.out.println("------------------------------");
+            System.out.println("Menu de cuentas bancarias:");
             System.out.println("1-Crear Cuenta Bancaria");
             System.out.println("2-Mostrar Cuentas Bancarias");
             System.out.println("3-Administrar Cuenta Bancaria");
             System.out.println("4-Eliminar Cuenta Bancaria");
-            System.out.println("0-Volver al Menu Principal");
+            System.out.println("0-Volver");
+            System.out.println("------------------------------");
             menu = Entradas.validInt();
             switch (menu){
                 case 1:
+                    Consola.limpiarPantalla();
                     AdministracionCuentasBancarias.crearCuentaBancaria(posicionCliente);
                     break;
                 case 2:
+                    Consola.limpiarPantalla();
                     AdministracionCuentasBancarias.mostrarCuentasBancarias(posicionCliente);
                     break;
                 case 3:
+                    Consola.limpiarPantalla();
                     String mensaje="\nElija la cuenta bancaria a utilizar usando el ID:";
                     int posicionCuentaCliente=AdministracionCuentasBancarias.elegirCuentaBancaria(clientes, mensaje, posicionCliente);
                     int posicionCuentaBancaria=-1;
@@ -121,12 +139,15 @@ public class App {
                     }
                     break;
                 case 4:
+                    Consola.limpiarPantalla();
                     AdministracionCuentasBancarias.eliminarCuentaBancaria(posicionCliente);
                     break;
                 case 0:
-                    System.out.println("Volver al Menu Principal");
+                    Consola.limpiarPantalla();
+                    System.out.println("Volver");
                     break;
                 default:
+                    Consola.limpiarPantalla();
                     System.out.println("Error: opcion no valida");
                     break;
             }

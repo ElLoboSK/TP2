@@ -39,10 +39,13 @@ public class AdministracionCuentasBancarias {
             System.out.println("Ingrese el tipo de cuenta bancaria (1-Caja de Ahorros/2-Cuenta Corriente)");
             respuesta = Entradas.validInt();
             if (respuesta==1) {
+                Consola.limpiarPantalla();
                 tipoCuenta = "Caja de Ahorros";
             }else if (respuesta==2) {
+                Consola.limpiarPantalla();
                 tipoCuenta = "Cuenta Corriente";
             }else {
+                Consola.limpiarPantalla();
                 System.out.println("Error: opcion no valida");
             }
         }while (respuesta!=1 && respuesta!=2);
@@ -60,6 +63,8 @@ public class AdministracionCuentasBancarias {
         cuentasCliente.add(cuentaBancaria);
         clientes.get(posicionCliente).setCuentasBancarias(cuentasCliente);
 
+
+        Consola.limpiarPantalla();
         System.out.println("Cuenta bancaria creada");
 
         Banco.setCuentasBancarias(cuentasBancarias);
@@ -70,7 +75,7 @@ public class AdministracionCuentasBancarias {
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
 
-        System.out.println("\nCuentas Bancarias del cliente:");
+        System.out.println("Cuentas Bancarias del cliente:");
         if (clientes.get(posicionCliente).getCuentasBancarias().size()==0){
             System.out.println("No hay cuentas bancarias");
         }else{
@@ -86,30 +91,38 @@ public class AdministracionCuentasBancarias {
         
         int menu;
         do{
-            System.out.println("\nMenu Uso Cuenta Bancaria:");
+            System.out.println("------------------------------");
+            System.out.println("Menu de administracion de cuentas bancaria:");
             System.out.println("1-Mostrar Datos");
             System.out.println("2-Depositar");
             System.out.println("3-Retirar");
             System.out.println("4-Transferir");
-            System.out.println("0-Volver al Menu Principal");
+            System.out.println("0-Volver");
+            System.out.println("------------------------------");
             menu = Entradas.validInt();
             switch (menu){
                 case 1:
+                    Consola.limpiarPantalla();
                     cuentasBancarias.get(posicionCuentaBancaria).mostrarDatos();
                     break;
                 case 2:
+                    Consola.limpiarPantalla();
                     Operaciones.depositar(posicionCuentaBancaria);
                     break;
                 case 3:
+                    Consola.limpiarPantalla();
                     Operaciones.retirar(posicionCuentaBancaria);
                     break;
                 case 4:
+                    Consola.limpiarPantalla();
                     Operaciones.transferir(posicionCuentaBancaria);
                     break;
                 case 0:
-                    System.out.println("Volver al Menu Principal");
+                    Consola.limpiarPantalla();
+                    System.out.println("Volver");
                     break;
                 default:
+                    Consola.limpiarPantalla();
                     System.out.println("Error: opcion no valida");
                     break;
             }
@@ -126,8 +139,10 @@ public class AdministracionCuentasBancarias {
         int respuesta;
         if (posicion!=-1) {
             if (clientes.get(posicionCliente).getCuentasBancarias().get(posicion).getSaldo()>0) {
+                Consola.limpiarPantalla();
                 System.out.println("Error: la cuenta bancaria no se puede eliminar porque aun tiene saldo");
             }else{
+                Consola.limpiarPantalla();
                 do {
                     System.out.println("¿Esta seguro que desea eliminar la cuenta bancaria? (1-Si/2-No)");
                     respuesta = Entradas.validInt();
@@ -139,15 +154,19 @@ public class AdministracionCuentasBancarias {
                             }
                         }
                         clientes.get(posicionCliente).getCuentasBancarias().remove(posicion);
+
+                        Consola.limpiarPantalla();
                         System.out.println("Cuenta bancaria eliminada");
 
                         Banco.setCuentasBancarias(cuentasBancarias);
                         Banco.setClientes(clientes);
                         break;
                     }else if (respuesta==2) {
+                        Consola.limpiarPantalla();
                         System.out.println("Se cancela la eliminacion de cuenta bancaria");
                         break;
                     }else{
+                        Consola.limpiarPantalla();
                         System.out.println("Error: opcion no valida");
                     }
                 } while (respuesta != 1 && respuesta!= 2);
@@ -159,7 +178,7 @@ public class AdministracionCuentasBancarias {
     public static int elegirCuentaBancaria(List<Cliente> clientes, String mensaje, int posicionCliente) {
         int posicion=-1;
         
-        System.out.println("\nCuentas Bancarias del cliente:");
+        System.out.println("Cuentas Bancarias del cliente:");
         if (clientes.get(posicionCliente).getCuentasBancarias().size()==0){
             System.out.println("No hay cuentas bancarias");
         }else{
@@ -175,9 +194,11 @@ public class AdministracionCuentasBancarias {
                 }
             }
             if (posicion==-1) {
+                Consola.limpiarPantalla();
                 System.out.println("La cuenta bancaria no existe");    
             }
         }
+        Consola.limpiarPantalla();
         return posicion;
     }
 }
