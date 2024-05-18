@@ -35,6 +35,7 @@ public class App {
                     menuClientes();
                     break;
                 case 2:
+                    //se elije el cliente sobre el que se va a trabajar las cuentas bancarias, se guarda la posicion de este en la lista y se lo pasa a al menu de cuentas bancarias
                     Consola.limpiarPantalla();
                     String mensaje="\nElija el cliente del que desea administrar las cuentas bancarias usando el DNI:";
                     int posicionCliente = AdministracionClientes.elegirCliente(clientes,mensaje);
@@ -79,6 +80,7 @@ public class App {
                     AdministracionClientes.mostrarClientes();
                     break;
                 case 3:
+                    //se elije el cliente sobre el que se va a trabajar, se guarda la posicion de este en la lista y se lo pasa a al menu de modificar cliente
                     Consola.limpiarPantalla();
                     String mensaje="\nElija el cliente a modificar usando el DNI:";
                     int posicion=AdministracionClientes.elegirCliente(clientes, mensaje);
@@ -127,6 +129,7 @@ public class App {
                     AdministracionCuentasBancarias.mostrarCuentasBancarias(posicionCliente);
                     break;
                 case 3:
+                    //se elije la cuenta bancaria sobre la que se va a trabajar, se guarda la posicion de esta en la lista y se lo pasa a al menu de administrar cuenta bancaria
                     Consola.limpiarPantalla();
                     String mensaje="\nElija la cuenta bancaria a utilizar usando el ID:";
                     int posicionCuentaCliente=AdministracionCuentasBancarias.elegirCuentaBancaria(clientes, mensaje, posicionCliente);

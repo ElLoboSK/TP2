@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Banco {
+    //clase para guardar los objetos clientes y cuentas bancarias y tener acceso a estos desde cualquier clase
     static List<Cliente> clientes=new ArrayList<Cliente>();
     static List<CuentaBancaria> cuentasBancarias=new ArrayList<CuentaBancaria>();
 

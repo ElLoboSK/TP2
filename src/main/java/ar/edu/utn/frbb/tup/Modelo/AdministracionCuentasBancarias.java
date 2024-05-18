@@ -11,17 +11,21 @@ import ar.edu.utn.frbb.tup.Utiles.Consola;
 import ar.edu.utn.frbb.tup.Utiles.Entradas;
 
 public class AdministracionCuentasBancarias {
+    //se crean 2 listas para luego llamarlas desde la clase banco y actualizarlas si se modifican
     static List<Cliente> clientes=new ArrayList<Cliente>();
     static List<CuentaBancaria> cuentasBancarias=new ArrayList<CuentaBancaria>();
 
     public static void crearCuentaBancaria(int posicionCliente) {
+        //se actualiza la informacion de las listas antes de trabajar con ellas
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
 
+        //se ingresan los datos de la cuenta bancaria automaticamente en su mayoria
         int idCliente = clientes.get(posicionCliente).getId();
         LocalDate fechaApertura = LocalDate.now();
         double saldo = 0;
 
+        //el cbu se hace con un random number generator y se valida que no exista en la lista de cuentas bancarias, si existe se repite el proceso
         boolean validCbu;
         String cbu;
         do{
@@ -34,6 +38,7 @@ public class AdministracionCuentasBancarias {
             }
         }while (!validCbu);
         
+        //el tipo de cuenta es el unico dato que se ingresa manualmente a partir de un menu para minimizar error humano
         String tipoCuenta="";
         int respuesta;
         do{
@@ -51,11 +56,13 @@ public class AdministracionCuentasBancarias {
             }
         }while (respuesta!=1 && respuesta!=2);
         
+        //se define el id agarrando la cuenta bancaria con el id mas grande y sumandole 1
         int id=0;
         for (int j=0;j<cuentasBancarias.size();j++){
             id = cuentasBancarias.get(j).getId()+1;
         }
         
+        //se crea la cuenta bancaria con los datos ingresados y se actualizan las listas para que el resto de las clases y metodos tengan acceso a la informacion
         CuentaBancaria cuentaBancaria = new CuentaBancaria(id,idCliente,fechaApertura,saldo,cbu,tipoCuenta);
         cuentasBancarias.add(cuentaBancaria);
 
@@ -73,9 +80,11 @@ public class AdministracionCuentasBancarias {
     }
 
     public static void mostrarCuentasBancarias(int posicionCliente) {
+        //se actualiza la informacion de las listas antes de trabajar con ellas
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
 
+        //se muestra la informacion de las cuentas bancarias por linea, si no hay cuentas bancarias se avisa por mensaje
         System.out.println("Cuentas Bancarias del cliente:");
         if (clientes.get(posicionCliente).getCuentasBancarias().size()==0){
             System.out.println("No hay cuentas bancarias");
@@ -87,6 +96,7 @@ public class AdministracionCuentasBancarias {
     }
 
     public static void menuAdministrarCuentaBancaria(int posicionCuentaBancaria) {
+        //se actualiza la informacion de las listas antes de trabajar con ellas
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
         
@@ -101,6 +111,7 @@ public class AdministracionCuentasBancarias {
             System.out.println("0-Volver");
             System.out.println("------------------------------");
             menu = Entradas.validInt();
+            //se usan metodos de la clase cuenta bancaria y de la clase operaciones segun el caso
             switch (menu){
                 case 1:
                     Consola.limpiarPantalla();
@@ -131,15 +142,19 @@ public class AdministracionCuentasBancarias {
     }
 
     public static void eliminarCuentaBancaria(int posicionCliente) {
+        //se actualiza la informacion de las listas antes de trabajar con ellas
         clientes=Banco.getClientes();
         cuentasBancarias=Banco.getCuentasBancarias();
         
+        //se elige la cuenta bancaria con un mensaje personalizado que se pasa por parametro
         String mensaje="\nElija la cuenta bancaria a eliminar usando el ID:";
         int posicion=elegirCuentaBancaria(clientes, mensaje, posicionCliente);
         
         int respuesta;
+        //la posicion en el metodo por default es -1, lo que quiere decir que no si no se encontro la cuenta bancaria buscada, va a traer -1 y no se ejecuta el resto del codigo
         if (posicion!=-1) {
             if (clientes.get(posicionCliente).getCuentasBancarias().get(posicion).getSaldo()>0) {
+                //si la cuenta bancaria tiene saldo no podra ser eliminada
                 Consola.limpiarPantalla();
                 System.out.println("Error: la cuenta bancaria no se puede eliminar porque aun tiene saldo");
             }else{
@@ -147,7 +162,9 @@ public class AdministracionCuentasBancarias {
                 do {
                     System.out.println("¿Esta seguro que desea eliminar la cuenta bancaria? (1-Si/2-No)");
                     respuesta = Entradas.validInt();
+                    //el usuario puede elegir si esta seguro de eliminar la cuenta bancaria
                     if (respuesta==1) {
+                        //si la respuesta es afirmativa se elimina el cliente de las listas y se actualizan
                         for (int k=0;k<cuentasBancarias.size();k++){
                             if (cuentasBancarias.get(k).getId()==clientes.get(posicionCliente).getCuentasBancarias().get(posicion).getId()) {
                                 cuentasBancarias.remove(k);
@@ -163,6 +180,7 @@ public class AdministracionCuentasBancarias {
                         Banco.setClientes(clientes);
                         break;
                     }else if (respuesta==2) {
+                        //en caso negativo, se cancela la eliminacion
                         Consola.limpiarPantalla();
                         System.out.println("Se cancela la eliminacion de cuenta bancaria");
                         break;
@@ -177,8 +195,10 @@ public class AdministracionCuentasBancarias {
 
     //Metodos auxiliares
     public static int elegirCuentaBancaria(List<Cliente> clientes, String mensaje, int posicionCliente) {
+        //por defalut, la posicion es -1, esto es asi porque no existe esa posicion en una lista, en lugar de usar un booleano que valide y un int para la posicion en 2 variables distintas, junto todo en una variable haciendo que el -1 signifique que la cuenta bancaria no fue encontrada
         int posicion=-1;
         
+        //se muestran todas las cuentas bancarias del cliente seleccionado para facilitar la eleccion
         System.out.println("Cuentas Bancarias del cliente:");
         if (clientes.get(posicionCliente).getCuentasBancarias().size()==0){
             System.out.println("No hay cuentas bancarias");
@@ -186,14 +206,17 @@ public class AdministracionCuentasBancarias {
             for (int i=0;i<clientes.get(posicionCliente).getCuentasBancarias().size();i++){
                 System.out.println("ID: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getId()+", CBU: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getCbu()+", Fecha de apretura: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getFechaApertura()+", Tipo: "+clientes.get(posicionCliente).getCuentasBancarias().get(i).getTipoCuenta());
             }
+            //se usa el id de la cuenta para seleccionarla y muestra por pantalla un mensaje personalizado pasado por parametro
             System.out.println(mensaje);
             int id = Entradas.validInt();
             
+            //si se encuentra la cuenta bancaria, guarda la posicion en la variable posicion
             for (int i=0;i<clientes.get(posicionCliente).getCuentasBancarias().size();i++){
                 if (clientes.get(posicionCliente).getCuentasBancarias().get(i).getId()==id){
                     posicion=i;
                 }
             }
+            //si no se encuentra la cuenta, se mantiene el -1 y muestra un mensaje de que la cuenta bancaria no existe en la parte de la base de datos referida a ese cliente
             if (posicion==-1) {
                 Consola.limpiarPantalla();
                 System.out.println("La cuenta bancaria no existe");    
