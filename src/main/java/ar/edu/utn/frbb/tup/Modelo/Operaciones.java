@@ -7,7 +7,8 @@ import java.time.LocalDate;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Movimiento;
-import ar.edu.utn.frbb.tup.Presentacion.*;
+import ar.edu.utn.frbb.tup.Presentacion.Entrada.Entradas;
+import ar.edu.utn.frbb.tup.Presentacion.Salida.Consola;
 
 public class Operaciones {
     //se crean 2 listas para luego llamarlas desde la clase banco y actualizarlas si se modifican

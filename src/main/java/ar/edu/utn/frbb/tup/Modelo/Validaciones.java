@@ -1,6 +1,6 @@
 package ar.edu.utn.frbb.tup.Modelo;
 
-import ar.edu.utn.frbb.tup.Presentacion.Entradas;
+import ar.edu.utn.frbb.tup.Presentacion.Entrada.Entradas;
 
 public class Validaciones {
     public static String validDni() {

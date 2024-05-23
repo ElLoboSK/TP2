@@ -5,8 +5,8 @@ import java.util.List;
 
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
-import ar.edu.utn.frbb.tup.Presentacion.Consola;
-import ar.edu.utn.frbb.tup.Presentacion.Entradas;
+import ar.edu.utn.frbb.tup.Presentacion.Entrada.Entradas;
+import ar.edu.utn.frbb.tup.Presentacion.Salida.Consola;
 
 public class AdministracionClientes {
     //se crean 2 listas para luego llamarlas desde la clase banco y actualizarlas si se modifican
@@ -213,7 +213,6 @@ public class AdministracionClientes {
                 System.out.println("El cliente no existe");
             }
         }
-        Consola.limpiarPantalla();
         return posicion;
     }
 }
