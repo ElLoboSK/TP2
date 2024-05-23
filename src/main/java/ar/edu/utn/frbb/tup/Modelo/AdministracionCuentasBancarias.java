@@ -4,11 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Banco;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
-import ar.edu.utn.frbb.tup.Utiles.Consola;
-import ar.edu.utn.frbb.tup.Utiles.Entradas;
+import ar.edu.utn.frbb.tup.Presentacion.Consola;
+import ar.edu.utn.frbb.tup.Presentacion.Entradas;
 
 public class AdministracionCuentasBancarias {
     //se crean 2 listas para luego llamarlas desde la clase banco y actualizarlas si se modifican

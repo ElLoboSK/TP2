@@ -3,11 +3,10 @@ package ar.edu.utn.frbb.tup.Modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Banco;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
-import ar.edu.utn.frbb.tup.Utiles.Consola;
-import ar.edu.utn.frbb.tup.Utiles.Entradas;
+import ar.edu.utn.frbb.tup.Presentacion.Consola;
+import ar.edu.utn.frbb.tup.Presentacion.Entradas;
 
 public class AdministracionClientes {
     //se crean 2 listas para luego llamarlas desde la clase banco y actualizarlas si se modifican
@@ -20,15 +19,15 @@ public class AdministracionClientes {
 
         //Ingreso de datos del cliente
         System.out.println("Ingrese el nombre:");
-        String nombre = Entradas.entradaString();
+        String nombre = Entradas.validString();
         System.out.println("Ingrese el apellido:");
-        String apellido = Entradas.entradaString();
+        String apellido = Entradas.validString();
         boolean valido = false;
         //se valida que el deni ingresado no figure en otro cliente
         System.out.println("Ingrese el DNI (8 digitos):");
         String dni;
         do{
-            dni = Entradas.validDni();
+            dni = Validaciones.validDni();
             valido = true;
             for (int i=0;i<clientes.size();i++){
                 if (clientes.get(i).getDni().equals(dni)){
@@ -38,12 +37,8 @@ public class AdministracionClientes {
                 }
             }
         }while (!valido);
-        System.out.println("Ingrese la direccion:");
-        String direccion = Entradas.entradaString();
         System.out.println("Ingrese el telefono:");
-        String telefono = Entradas.entradaString();
-        System.out.println("Ingrese el email:");
-        String email = Entradas.entradaString();
+        String telefono = Entradas.validString();
         //se define el id agarrando el cliente con el id mas grande y sumandole 1
         int id = 0;
         for (int i=0;i<clientes.size();i++){
@@ -51,7 +46,7 @@ public class AdministracionClientes {
         }
     
         //se crea el cliente y se agrega a la lista
-        Cliente cliente = new Cliente(nombre, apellido, dni, direccion, telefono, email, id);
+        Cliente cliente = new Cliente(nombre, apellido, dni, telefono, id);
         clientes.add(cliente);
 
         Consola.limpiarPantalla();
@@ -71,7 +66,7 @@ public class AdministracionClientes {
             System.out.println("No hay clientes");
         }else{
             for (int i=0;i<clientes.size();i++){
-                System.out.println("ID: "+clientes.get(i).getId()+", Nombre: "+clientes.get(i).getNombre()+", Apellido: "+clientes.get(i).getApellido()+", DNI: "+clientes.get(i).getDni()+", Direccion: "+clientes.get(i).getDireccion()+", Telefono: "+clientes.get(i).getTelefono()+", Email: "+clientes.get(i).getEmail());
+                System.out.println("ID: "+clientes.get(i).getId()+", Nombre: "+clientes.get(i).getNombre()+", Apellido: "+clientes.get(i).getApellido()+", DNI: "+clientes.get(i).getDni()+", Telefono: "+clientes.get(i).getTelefono());
             }
         }
     }
@@ -89,15 +84,11 @@ public class AdministracionClientes {
             System.out.println("Nombre: "+clientes.get(posicionCliente).getNombre());
             System.out.println("Apellido: "+clientes.get(posicionCliente).getApellido());
             System.out.println("DNI: "+clientes.get(posicionCliente).getDni());
-            System.out.println("Direccion: "+clientes.get(posicionCliente).getDireccion());
             System.out.println("Telefono: "+clientes.get(posicionCliente).getTelefono());
-            System.out.println("Email: "+clientes.get(posicionCliente).getEmail());
             System.out.println("\nMenu de modificacion:");
             System.out.println("1-Nombre");
             System.out.println("2-Apellido");
-            System.out.println("3-Direccion");
-            System.out.println("4-Telefono");
-            System.out.println("5-Email");
+            System.out.println("3-Telefono");
             System.out.println("0-Volver");
             System.out.println("------------------------------");
             menu = Entradas.validInt();
@@ -106,36 +97,22 @@ public class AdministracionClientes {
                 case 1:
                     Consola.limpiarPantalla();
                     System.out.println("Ingrese el nuevo nombre:");
-                    String nombre = Entradas.entradaString();
+                    String nombre = Entradas.validString();
                     clientes.get(posicionCliente).setNombre(nombre);
                     Consola.limpiarPantalla();
                     break;
                 case 2:
                     Consola.limpiarPantalla();
                     System.out.println("Ingrese el nuevo apellido:");
-                    String apellido = Entradas.entradaString();
+                    String apellido = Entradas.validString();
                     clientes.get(posicionCliente).setApellido(apellido);
                     Consola.limpiarPantalla();
                     break;
                 case 3:
                     Consola.limpiarPantalla();
-                    System.out.println("Ingrese la nueva direccion:");
-                    String direccion = Entradas.entradaString();
-                    clientes.get(posicionCliente).setDireccion(direccion);
-                    Consola.limpiarPantalla();
-                    break;
-                case 4:
-                    Consola.limpiarPantalla();
                     System.out.println("Ingrese el nuevo telefono:");
-                    String telefono = Entradas.entradaString();
+                    String telefono = Entradas.validString();
                     clientes.get(posicionCliente).setTelefono(telefono);
-                    Consola.limpiarPantalla();
-                    break;
-                case 5:
-                    Consola.limpiarPantalla();
-                    System.out.println("Ingrese el nuevo email:");
-                    String email = Entradas.entradaString();
-                    clientes.get(posicionCliente).setEmail(email);
                     Consola.limpiarPantalla();
                     break;
                 case 0:
@@ -222,7 +199,7 @@ public class AdministracionClientes {
             }
             //luego de la muestra de clientes, se usa el mensaje presonalizado que se trae por parametro y se usa el dni para elegir el cliente
             System.out.println(mensaje);
-            String dni = Entradas.validDni();
+            String dni = Validaciones.validDni();
 
             //si se encuentra el cliente, se devuelve la posicion en la lista
             for (int i=0;i<clientes.size();i++){

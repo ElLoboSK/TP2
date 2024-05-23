@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Banco;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Movimiento;
-import ar.edu.utn.frbb.tup.Utiles.*;
+import ar.edu.utn.frbb.tup.Presentacion.*;
 
 public class Operaciones {
     //se crean 2 listas para luego llamarlas desde la clase banco y actualizarlas si se modifican
@@ -121,7 +120,7 @@ public class Operaciones {
                     }
                 }
                 System.out.println("\nIngrese el CBU de la cuenta bancaria a transferir:");
-                String cbu=Entradas.validCBU();
+                String cbu=Validaciones.validCBU();
                 
                 //se usa el cbu para buscar la cuenta, si se encuentra, se guarda la posicion de la misma
                 int posicionCuentaBancariaTransferir=-1;

@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import ar.edu.utn.frbb.tup.Modelo.AdministracionClientes;
 import ar.edu.utn.frbb.tup.Modelo.AdministracionCuentasBancarias;
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Banco;
+import ar.edu.utn.frbb.tup.Modelo.Banco;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
 import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
-import ar.edu.utn.frbb.tup.Utiles.*;
+import ar.edu.utn.frbb.tup.Presentacion.*;
 
 public class App {
     static List<Cliente> clientes=new ArrayList<Cliente>();
