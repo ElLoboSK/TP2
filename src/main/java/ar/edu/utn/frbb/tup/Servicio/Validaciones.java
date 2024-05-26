@@ -1,4 +1,4 @@
-package ar.edu.utn.frbb.tup.Modelo;
+package ar.edu.utn.frbb.tup.Servicio;
 
 import ar.edu.utn.frbb.tup.Presentacion.Entrada.Entradas;
 

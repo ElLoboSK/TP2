@@ -3,13 +3,13 @@ package ar.edu.utn.frbb.tup.Presentacion;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.utn.frbb.tup.Modelo.AdministracionClientes;
-import ar.edu.utn.frbb.tup.Modelo.AdministracionCuentasBancarias;
 import ar.edu.utn.frbb.tup.Modelo.Banco;
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
-import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
+import ar.edu.utn.frbb.tup.Modelo.Cliente;
+import ar.edu.utn.frbb.tup.Modelo.CuentaBancaria;
 import ar.edu.utn.frbb.tup.Presentacion.Entrada.Entradas;
 import ar.edu.utn.frbb.tup.Presentacion.Salida.Consola;
+import ar.edu.utn.frbb.tup.Servicio.Administracion.AdministracionClientes;
+import ar.edu.utn.frbb.tup.Servicio.Administracion.AdministracionCuentasBancarias;
 
 public class Menus {
     static List<Cliente> clientes=new ArrayList<Cliente>();

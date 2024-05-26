@@ -1,4 +1,4 @@
-package ar.edu.utn.frbb.tup.Modelo.Entidades;
+package ar.edu.utn.frbb.tup.Modelo;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ar.edu.utn.frbb.tup.Modelo.Entidades;
+package ar.edu.utn.frbb.tup.Modelo;
 
 public class Persona {
     private String nombre;

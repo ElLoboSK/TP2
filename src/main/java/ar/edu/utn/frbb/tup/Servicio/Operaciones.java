@@ -1,12 +1,13 @@
-package ar.edu.utn.frbb.tup.Modelo;
+package ar.edu.utn.frbb.tup.Servicio;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
-import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Movimiento;
+import ar.edu.utn.frbb.tup.Modelo.Banco;
+import ar.edu.utn.frbb.tup.Modelo.Cliente;
+import ar.edu.utn.frbb.tup.Modelo.CuentaBancaria;
+import ar.edu.utn.frbb.tup.Modelo.Movimiento;
 import ar.edu.utn.frbb.tup.Presentacion.Entrada.Entradas;
 import ar.edu.utn.frbb.tup.Presentacion.Salida.Consola;
 

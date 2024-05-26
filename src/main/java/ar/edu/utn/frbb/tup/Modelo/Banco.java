@@ -3,9 +3,6 @@ package ar.edu.utn.frbb.tup.Modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.utn.frbb.tup.Modelo.Entidades.Cliente;
-import ar.edu.utn.frbb.tup.Modelo.Entidades.CuentaBancaria;
-
 public class Banco {
     //clase para guardar los objetos clientes y cuentas bancarias y tener acceso a estos desde cualquier clase
     static List<Cliente> clientes=new ArrayList<Cliente>();
